@@ -9,7 +9,7 @@ const cssnano = require("gulp-cssnano");
 // minimera bilder
 const imagemin = require("gulp-imagemin");
 // browsersync
-const browsersync = require("browser-sync").create();
+const browserSync = require("browser-sync").create();
 
 // objekt för att lagra sökvägar
 const files = {
@@ -66,9 +66,8 @@ function picTask() {
 
 // en watchtask för att automatisera metoderna.
 function watchTask() {
-  // browsersync
-  browsersync.init({
-    // ändra från app till pub
+  // browsersync, ändra från app till pub
+  browserSync.init({
     server: "./pub",
   });
 
@@ -76,7 +75,7 @@ function watchTask() {
   watch(
     [files.htmlPath, files.cssPath, files.jsPath, files.picPath],
     parallel(htmlTask, cssTask, jsTask, picTask)
-  ).on("change", browsersync.reload);
+  ).on("change", browserSync.reload);
 }
 
 // Dags att exportera, först körs alla task parallelt, sedan watchTask med browserSync.
