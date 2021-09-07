@@ -1,14 +1,9 @@
 .slideshowContainer {
   max-width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slideshowContainer div {
-  width: 800px;
-  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
 .slide {

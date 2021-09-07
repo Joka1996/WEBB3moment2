@@ -71,14 +71,16 @@ function watchTask() {
     server: "./pub",
   });
 
-  // metoden watch som tar en array och ett argument. Ladda om webbläsaren vid förändring, browsersync
+  // metoden watch som tar en array och ett argument.
+  // Ladda om webbläsaren vid förändring, browsersync
   watch(
     [files.htmlPath, files.cssPath, files.jsPath, files.picPath],
     parallel(htmlTask, cssTask, jsTask, picTask)
   ).on("change", browserSync.reload);
 }
 
-// Dags att exportera, först körs alla task parallelt, sedan watchTask med browserSync.
+// Dags att exportera, först körs alla task parallelt,
+//  sedan watchTask med browserSync.
 exports.default = series(
   parallel(htmlTask, cssTask, jsTask, picTask),
   watchTask
