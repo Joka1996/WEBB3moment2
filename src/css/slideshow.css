@@ -1,23 +1,35 @@
 .slideshowContainer {
   max-width: 100%;
   position: relative;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideshowContainer div {
+  width: 500px;
+  height: 100px;
 }
 
 .slide {
   display: none;
 }
 
+.slide img {
+  max-width: 100%;
+  border: 20px solid rgb(13, 129, 149);
+}
+
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 2s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
 @-webkit-keyframes fade {
   from {
-    opacity: 0.4;
+    opacity: 0.7;
   }
   to {
     opacity: 1;
@@ -26,7 +38,7 @@
 
 @keyframes fade {
   from {
-    opacity: 0.4;
+    opacity: 0.7;
   }
   to {
     opacity: 1;
