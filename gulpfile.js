@@ -10,6 +10,8 @@ const cssnano = require("gulp-cssnano");
 const imagemin = require("gulp-imagemin");
 // browsersync
 const browserSync = require("browser-sync").create();
+// sourceMaps
+const sourcemaps = require("gulp-sourcemaps");
 
 // objekt för att lagra sökvägar
 const files = {
@@ -33,9 +35,13 @@ function cssTask() {
   return (
     // slå ihop filer
     src(files.cssPath)
+      // sourcemaps
+      .pipe(sourcemaps.init())
       .pipe(concat("main.css"))
       // minimera filer
       .pipe(cssnano())
+      // sourcemaps
+      .pipe(sourcemaps.write())
       // skicka till pub
       .pipe(dest("pub/css"))
   );
@@ -44,10 +50,14 @@ function cssTask() {
 function jsTask() {
   return (
     src(files.jsPath)
+      // sourcemap
+      .pipe(sourcemaps.init())
       // slå ihop
       .pipe(concat("main.js"))
       // minimera filer
       .pipe(terser())
+      // sourcemaps
+      .pipe(sourcemaps.write())
       // skicka till pub
       .pipe(dest("pub/js"))
   );

@@ -1,7 +1,7 @@
 #Uppgift för moment2
 Detta är inlämningsuppgiften för moment 2.
 Jag har använt paketet concat för att slå ihop filer till en och samma, jag har även använt paketen terser, cssnano och imagemin för att minimera filer. Jag har även Browsersync för att ha en liveserver...
-Gulp sourcemaps ska nog in också.
+Gulp sourcemaps finns nu i på sidan. Vid inspektion i webbläsaren kan man nu se vilken fil CSS-koden tillhör.
 
 Man startar systemet genom att skriva gulp i terminalen. Då går först alla tasks igång parallelt. Deras uppgift är att slå ihop, minimera och föra över filerna till mappen pub.
 
