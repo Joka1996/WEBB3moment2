@@ -1,16 +1,16 @@
 // Metoder
 const { src, dest, parallel, series, watch } = require("gulp");
-// slå ihop filer
+// slå ihop filer npm install gulp-concat --save-dev
 const concat = require("gulp-concat");
-// minimera js
+// minimera js npm install gulp-terser --save-dev
 const terser = require("gulp-terser");
-// minimera css
+// minimera css npm install gulp-cssnano --save-dev
 const cssnano = require("gulp-cssnano");
-// minimera bilder
+// minimera bilder npm install gulp-imagemin --save-dev
 const imagemin = require("gulp-imagemin");
-// browsersync
+// browsersync npm install browser-sync --save-dev
 const browserSync = require("browser-sync").create();
-// sourceMaps
+// sourceMaps npm i gulp-sourcemaps --save-dev
 const sourcemaps = require("gulp-sourcemaps");
 
 // objekt för att lagra sökvägar
@@ -41,7 +41,7 @@ function cssTask() {
       // minimera filer
       .pipe(cssnano())
       // sourcemaps
-      .pipe(sourcemaps.write())
+      .pipe(sourcemaps.write("./maps"))
       // skicka till pub
       .pipe(dest("pub/css"))
   );
@@ -57,7 +57,7 @@ function jsTask() {
       // minimera filer
       .pipe(terser())
       // sourcemaps
-      .pipe(sourcemaps.write())
+      .pipe(sourcemaps.write("./maps"))
       // skicka till pub
       .pipe(dest("pub/js"))
   );
